@@ -16,18 +16,23 @@ var ThresholdReporter = function(baseReporterDecorator, config, logger, helper, 
   }];
 
   this.onRunStart = function(browsers) {
+    log.warn('onRunStart');
   };
 
   this.onBrowserStart = function(browser) {
+    log.warn('onBrowserStart');
   };
 
   this.onBrowserComplete = function(browser) {
+    log.warn('onBrowserComplete');
   };
 
   this.onRunComplete = function() {
+    log.warn('onRunComplete');
   };
 
   this.onSpecComplete = function(browser, result) {
+    log.warn('onSpecComplete');
     if (result.coverage) {
       log.warn('Browser: ' +  browser.id + ', Spec Coverage : ' + result.coverage)
     }
@@ -35,6 +40,7 @@ var ThresholdReporter = function(baseReporterDecorator, config, logger, helper, 
 
   // wait for writing all the xml files, before exiting
   this.onExit = function(done) {
+    log.warn('onExit');
     done();
   };
 };
