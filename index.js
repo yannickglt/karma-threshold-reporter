@@ -1,12 +1,8 @@
-var os = require('os');
-var path = require('path');
-var fs = require('fs');
 var istanbul = require('istanbul');
 
 var ThresholdReporter = function(baseReporterDecorator, config, logger, helper, formatError) {
   var log = logger.create('reporter.threshold');
   var reporterConfig = config.thresholdReporter || {};
-  var pkgName = reporterConfig.suite || '';
 
   var suites;
   var pendingFileWritings = 0;
@@ -39,7 +35,7 @@ var ThresholdReporter = function(baseReporterDecorator, config, logger, helper, 
 
   // wait for writing all the xml files, before exiting
   this.onExit = function(done) {
-
+    done();
   };
 };
 
