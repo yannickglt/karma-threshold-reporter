@@ -24,6 +24,9 @@ npm install karma-threshold-reporter --save-dev
 // karma.conf.js
 module.exports = function(config) {
   config.set({
+  
+    plugins: ['karma-threshold-reporter'],
+  
     reporters: ['progress', 'coverage','threshold'],
 
     // the default configuration
