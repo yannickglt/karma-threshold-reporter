@@ -5,6 +5,7 @@ var istanbulUtils = require('./istanbul-utils');
 var ThresholdReporter = function(baseReporterDecorator, config, logger, helper) {
   var log = logger.create('Threshold');
   var reporterConfig = config.thresholdReporter || { statements: 50, branches: 50, functions: 50, lines: 50};
+  var thresholdEnd2EndTests = config.thresholdEnd2EndTests || false;
   baseReporterDecorator(this);
   var failedExpectation = false;
 
@@ -30,6 +31,13 @@ var ThresholdReporter = function(baseReporterDecorator, config, logger, helper) 
 
   this.onBrowserComplete = function(browser,result) {
     if (result && result.coverage) {
+      collector.add(result.coverage);
+    }
+  };
+
+  this.onSpecComplete = function(browser, result) {
+    if (thresholdEnd2EndTests && result && result.coverage) {
+      log.debug('collect coverage onSpecComplete')
       collector.add(result.coverage);
     }
   };
