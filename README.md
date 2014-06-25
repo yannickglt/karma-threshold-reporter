@@ -20,6 +20,9 @@ npm install karma-threshold-reporter --save-dev
 ```
 
 ## Configuration
+
+For unit tests
+
 ```js
 // karma.conf.js
 module.exports = function(config) {
@@ -29,13 +32,29 @@ module.exports = function(config) {
   
     reporters: ['progress', 'coverage','threshold'],
 
-    // the default configuration
+    // the configure thresholds
     thresholdReporter: {
       statements: 90,
       branches: 60,
       functions: 85,
       lines: 90
     }
+  });
+};
+```
+For end 2 end tests
+
+```js
+// karma-e2e.conf.js
+module.exports = function(config) {
+  config.set({
+
+    plugins: ['karma-threshold-reporter'],
+
+    reporters: ['progress', 'coverage','threshold'],
+
+    // enable this for e2e tests
+    thresholdE2EReporter: true
   });
 };
 ```
