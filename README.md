@@ -9,7 +9,7 @@ The easiest way is to keep `karma-threshold-reporter` as a devDependency in your
 {
   "devDependencies": {
     "karma": "~0.10",
-    "karma-threshold-reporter": "~0.1.6"
+    "karma-threshold-reporter": "~0.1.7"
   }
 }
 ```
@@ -21,10 +21,8 @@ npm install karma-threshold-reporter --save-dev
 
 ## Configuration
 
-For unit tests
-
 ```js
-// karma.conf.js
+// karma.conf.js or karma-e2e.conf.js
 module.exports = function(config) {
   config.set({
   
@@ -39,22 +37,6 @@ module.exports = function(config) {
       functions: 85,
       lines: 90
     }
-  });
-};
-```
-For end 2 end tests
-
-```js
-// karma-e2e.conf.js
-module.exports = function(config) {
-  config.set({
-
-    plugins: ['karma-threshold-reporter'],
-
-    reporters: ['progress', 'coverage','threshold'],
-
-    // enable this for e2e tests
-    thresholdE2EReporter: true
   });
 };
 ```
