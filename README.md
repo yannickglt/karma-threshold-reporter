@@ -19,6 +19,8 @@ You can simple do it by:
 npm install karma-threshold-reporter --save-dev
 ```
 
+[![NPM Stats](https://nodei.co/npm/karma-threshold-reporter.png?downloads=true)](https://npmjs.org/package/karma-threshold-reporter)
+
 ## Configuration
 
 ```js
