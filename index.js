@@ -63,7 +63,9 @@ var ThresholdReporter = function(baseReporterDecorator, config, logger, helper) 
 
     if(failedExpectation) {
       log.error('Failed minimum coverage threshold expectations');
-      process.exit(1);
+      process.on('exit', function() {
+        process.reallyExit(1);
+      });
     }
     done();
   };
