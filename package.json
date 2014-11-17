@@ -18,7 +18,7 @@
   ],
   "author": "Santthosh Selvadurai <santthosh.selvadurai@lithium.com>",
   "dependencies": {
-    "istanbul": "~0.1.45"
+    "istanbul": "~0.3.2"
   },
   "peerDependencies": {
     "karma": ">=0.9"
