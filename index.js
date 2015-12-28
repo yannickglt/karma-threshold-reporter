@@ -13,6 +13,7 @@ var ThresholdReporter = function(baseReporterDecorator, config, logger, helper) 
     var metrics = summary[key],
       skipped,
       result;
+    expectation = expectation || 0;
     key = key.substring(0, 1).toUpperCase() + key.substring(1);
     if (key.length < 12) { key += '                   '.substring(0, 12 - key.length); }
     result = [ key , ':', metrics.pct + '%', '(', metrics.covered + '/' + metrics.total, ')', 'Threshold : ' + expectation + '%'].join(' ');
